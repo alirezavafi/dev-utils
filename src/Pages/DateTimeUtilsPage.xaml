@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:a="clr-namespace:DevUtils"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             x:Class="DevUtils.Pages.DateTimeUtilsPage"
+             xmlns:vc="clr-namespace:DevUtils.Converters"
+             Title="Url Utilities"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Resources>
+        <!--<vc:DateTimeToTimeStampConverter x:Key="encoder" Negate="false"/>
+        <vc:DateTimeToTimeStampConverter x:Key="decoder" Negate="true"/>-->
+    </ContentPage.Resources>
+    
+    <Grid RowDefinitions="100, *" RowSpacing="24"
+          ColumnDefinitions="*"
+          Margin="24,0,0,0">
+
+        <VerticalStackLayout Margin="0,24,0,0">
+            <Label Text="DateTime/Timestamp Converter" Style="{StaticResource LargeTitle}"/>
+            <BoxView Style="{StaticResource HRule}" Margin="0,24,0,24"/>
+        </VerticalStackLayout>
+
+        <ScrollView Grid.Row="1" Margin="24">
+            <Grid RowDefinitions="auto,auto" ColumnDefinitions="auto,*" ColumnSpacing="10">
+                <Label Text="Timestamp:" Grid.Column="0" Grid.Row="0"/>
+                <Entry WidthRequest="300"  Grid.Column="1" Grid.Row="0"
+                       x:Name="epochInput" TextChanged="epochInput_TextChanged"
+                       HorizontalOptions="Start" VerticalOptions="Center"/>
+                <!--Text="{Binding Source={x:Reference decoded}, Path=Text, Converter={StaticResource encoder}}"-->
+                <Label Text="Date Time:" Grid.Column="0" Grid.Row="1" Margin="0,10,0,0"/>
+                <Entry WidthRequest="300" Grid.Column="1" Grid.Row="1" Margin="0,10,0,0" 
+                       x:Name="dateTimeInput" TextChanged="dateTimeInput_TextChanged"
+                       HorizontalOptions="Start" VerticalOptions="Center"/>
+                    <!--Text="{Binding Source={x:Reference encoded}, Path=Text, Converter={StaticResource decoder}}"-->
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>
+

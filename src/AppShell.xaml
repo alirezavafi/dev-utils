@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:pages="clr-namespace:DevUtils.Pages"
+       xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+       x:Class="DevUtils.AppShell"
+       FlyoutWidth="200" 
+       FlyoutBehavior="Locked">
+
+    <Shell.Resources>
+        <Color x:Key="IconTintColor">White</Color>
+
+        <ControlTemplate x:Key="MenuItemTemplate">
+            <Grid RowDefinitions="Auto">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CheckedStates">
+                            <VisualState x:Name="Checked">
+                                <VisualState.Setters>
+                                    <Setter TargetName="OuterBorder" Property="Background" Value="{StaticResource DarkBg1Brush}" />
+                                    <Setter TargetName="OuterBorder" Property="Border.StrokeThickness" Value="1" />
+                                    <Setter TargetName="InnerBorder" Property="Background" Value="Transparent" />
+                                    <Setter TargetName="InnerBorder" Property="Border.StrokeThickness" Value="1" />
+                                </VisualState.Setters>
+                            </VisualState>
+
+                            <VisualState x:Name="Unchecked">
+                                <VisualState.Setters>
+                                    <Setter TargetName="OuterBorder" Property="Background" Value="Transparent" />
+                                    <Setter TargetName="OuterBorder" Property="Border.StrokeThickness" Value="0" />
+                                    <Setter TargetName="InnerBorder" Property="Background" Value="Transparent" />
+                                    <Setter TargetName="InnerBorder" Property="Border.StrokeThickness" Value="0" />
+                                </VisualState.Setters>
+                            </VisualState>
+
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </VisualStateManager.VisualStateGroups>
+
+                <Border x:Name="OuterBorder" 
+                        Background="Transparent"
+                        Stroke="{StaticResource DarkBg1Brush}" 
+                        StrokeThickness="0"
+                        HorizontalOptions="Fill"
+                        HeightRequest="40"
+                        Margin="5,0,0,0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="12,0,12,0" />
+                    </Border.StrokeShape>
+                </Border>
+
+                <Border x:Name="InnerBorder" 
+                        Background="Transparent"
+                        Margin="15" 
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Center"
+                        Stroke="{StaticResource PrimaryBrush}" 
+                        StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="8" />
+                    </Border.StrokeShape>
+                </Border>
+
+                <ContentPresenter x:Name="CP"/>
+            </Grid>
+        </ControlTemplate>
+     </Shell.Resources>
+
+    <Shell.FlyoutContentTemplate>
+        <DataTemplate>
+            <Grid Background="{StaticResource DarkBg2Brush}"
+                  RowDefinitions="auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto"
+                  RadioButtonGroup.GroupName="Menu"
+                  RadioButtonGroup.SelectedValue="{Binding SelectedRoute}">
+                <Grid.Resources>
+                    <Style TargetType="RadioButton">
+                        <Setter Property="ControlTemplate" Value="{StaticResource MenuItemTemplate}"/>
+                    </Style>
+                </Grid.Resources>
+
+                <Image Source="logo.png"
+                       Grid.Row="0"
+                       Margin="0,15,0,15"/>                    
+
+                <RadioButton Value="base64" Grid.Row="1"
+                                CheckedChanged="OnMenuItemChanged">
+                    <RadioButton.Content>
+                        <Grid ColumnDefinitions="Auto,Auto" ColumnSpacing="8"
+                          RowDefinitions="Auto, Auto" RowSpacing="4"
+                          Padding="10"
+                          >
+                            <Image Source="setting.svg" />
+                            <Label Text="Base 64" Grid.Column="1" Style="{StaticResource Headline}" />
+                        </Grid>
+                    </RadioButton.Content>
+                </RadioButton>
+                <RadioButton Value="hash" Grid.Row="2"
+                                CheckedChanged="OnMenuItemChanged">
+                    <RadioButton.Content>
+                        <Grid ColumnDefinitions="Auto,Auto" ColumnSpacing="8"
+                          RowDefinitions="Auto, Auto" RowSpacing="4"
+                          Padding="10"
+                          >
+                            <Image Source="setting.svg" />
+                            <Label Text="Hash" Grid.Column="1" Style="{StaticResource Headline}" />
+                        </Grid>
+                    </RadioButton.Content>
+                </RadioButton>
+                <RadioButton Value="id" Grid.Row="3"
+                                CheckedChanged="OnMenuItemChanged">
+                    <RadioButton.Content>
+                        <Grid ColumnDefinitions="Auto,Auto" ColumnSpacing="8"
+                          RowDefinitions="Auto, Auto" RowSpacing="4"
+                          Padding="10"
+                          >
+                            <Image Source="setting.svg" />
+                            <Label Text="Identifier" Grid.Column="1" Style="{StaticResource Headline}" />
+                        </Grid>
+                    </RadioButton.Content>
+                </RadioButton>
+                <RadioButton Value="url" Grid.Row="5"
+                                CheckedChanged="OnMenuItemChanged">
+                    <RadioButton.Content>
+                        <Grid ColumnDefinitions="Auto,Auto" ColumnSpacing="8"
+                          RowDefinitions="Auto, Auto" RowSpacing="4"
+                          Padding="10"
+                          >
+                            <Image Source="setting.svg" />
+                            <Label Text="Url" Grid.Column="1" Style="{StaticResource Headline}" />
+                        </Grid>
+                    </RadioButton.Content>
+                </RadioButton>
+                <RadioButton Value="password" Grid.Row="7"
+                                CheckedChanged="OnMenuItemChanged">
+                    <RadioButton.Content>
+                        <Grid ColumnDefinitions="Auto,Auto" ColumnSpacing="8"
+                          RowDefinitions="Auto, Auto" RowSpacing="4"
+                          Padding="10"
+                          >
+                            <Image Source="setting.svg" />
+                            <Label Text="Password" Grid.Column="1" Style="{StaticResource Headline}" />
+                        </Grid>
+                    </RadioButton.Content>
+                </RadioButton>
+                <RadioButton Value="time" Grid.Row="8"
+                                CheckedChanged="OnMenuItemChanged">
+                    <RadioButton.Content>
+                        <Grid ColumnDefinitions="Auto,Auto" ColumnSpacing="8"
+                          RowDefinitions="Auto, Auto" RowSpacing="4"
+                          Padding="10"
+                          >
+                            <Image Source="setting.svg" />
+                            <Label Text="Time" Grid.Column="1" Style="{StaticResource Headline}" />
+                        </Grid>
+                    </RadioButton.Content>
+                </RadioButton>
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutContentTemplate>
+
+    <FlyoutItem Title="Base 64" Route="base64">
+        <ShellContent ContentTemplate="{DataTemplate pages:Base64UtilsPage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Url" Route="url">
+        <ShellContent ContentTemplate="{DataTemplate pages:UrlUtilsPage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Hash" Route="hash">
+        <ShellContent ContentTemplate="{DataTemplate pages:HashUtilsPage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Identifier" Route="id">
+        <ShellContent ContentTemplate="{DataTemplate pages:IdentifierUtilsPage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="DateTime" Route="time">
+        <ShellContent ContentTemplate="{DataTemplate pages:DateTimeUtilsPage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Password" Route="password">
+        <ShellContent ContentTemplate="{DataTemplate pages:PasswordUtilsPage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Messages" Route="message">
+        <ShellContent ContentTemplate="{DataTemplate pages:EmptyPage}"/>
+    </FlyoutItem>
+</Shell>

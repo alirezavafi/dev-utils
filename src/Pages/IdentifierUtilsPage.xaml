@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:a="clr-namespace:DevUtils"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui;assembly=CommunityToolkit.Maui" 
+             x:Class="DevUtils.Pages.IdentifierUtilsPage"
+             xmlns:vc="clr-namespace:DevUtils.Converters"
+             Title="Identifier Utilities"
+             Shell.NavBarIsVisible="False">
+    <Grid RowDefinitions="100, *" RowSpacing="24"
+          ColumnDefinitions="*"
+          Margin="24,0,0,0">
+
+        <!-- left column -->
+        <VerticalStackLayout Margin="0,24,0,0">
+            <Label Text="Id Generators" Style="{StaticResource LargeTitle}"/>
+            <BoxView Style="{StaticResource HRule}" Margin="0,24,0,24"/>
+        </VerticalStackLayout>
+
+        <ScrollView Grid.Row="1" Margin="24">
+            <Grid RowDefinitions="auto,auto,auto,auto,auto" ColumnDefinitions="auto,400,auto" ColumnSpacing="10">
+                <Label Text="Guid:" Grid.Column="0" Grid.Row="0"
+                       HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Entry x:Name="guid" WidthRequest="400" IsReadOnly="True"
+                       Grid.Column="1" Grid.Row="0"
+                       HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Button Text="Regenerate" Grid.Column="2" Grid.Row="0"
+                        Clicked="RegenerateGuid"/>
+                <Label Text="Base32:" Grid.Column="0" Grid.Row="1"
+                       HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Entry x:Name="base32" WidthRequest="400" IsReadOnly="True"
+                       Grid.Column="1" Grid.Row="1"
+                       HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Button Text="Regenerate" Grid.Column="2" Grid.Row="1"
+                        Clicked="RegenerateBase32"/>
+                <Label Text="Base54:" Grid.Column="0" Grid.Row="2"
+                       HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Entry x:Name="base54" WidthRequest="400" IsReadOnly="True"
+                       Grid.Column="1" Grid.Row="2"
+                       HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Button Text="Regenerate" Grid.Column="2" Grid.Row="2"
+                        Clicked="RegenerateBase54"/>
+                <Label Text="Random:" Grid.Column="0" Grid.Row="3"
+                       HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Entry x:Name="random" WidthRequest="400" IsReadOnly="True"
+                       Grid.Column="1" Grid.Row="3"
+                       HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Button Text="Regenerate" Grid.Column="2" Grid.Row="3"
+                        Clicked="RegenerateRandom"/>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>
+

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:a="clr-namespace:DevUtils"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             x:Class="DevUtils.Pages.UrlUtilsPage"
+             xmlns:vc="clr-namespace:DevUtils.Converters"
+             Title="Url Utilities"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Resources>
+        <vc:UrlEncodeConverter x:Key="encoder" Negate="false"/>
+        <vc:UrlEncodeConverter x:Key="decoder" Negate="true"/>
+    </ContentPage.Resources>
+    
+    <Grid RowDefinitions="100, *" RowSpacing="24"
+          ColumnDefinitions="*"
+          Margin="24,0,0,0">
+
+        <!-- left column -->
+        <VerticalStackLayout Margin="0,24,0,0">
+            <Label Text="Url Decode/Encode" Style="{StaticResource LargeTitle}"/>
+            <BoxView Style="{StaticResource HRule}" Margin="0,24,0,24"/>
+        </VerticalStackLayout>
+
+        <ScrollView Grid.Row="1" Margin="24">
+            <Grid RowDefinitions="*,*" ColumnDefinitions="auto,*" ColumnSpacing="10">
+                <Label Text="Encoded:" Grid.Column="0" Grid.Row="0"/>
+                <Editor MinimumHeightRequest="150" MinimumWidthRequest="200"  Grid.Column="1" Grid.Row="0"
+                        Text="{Binding Source={x:Reference decoded}, Path=Text, Converter={StaticResource encoder}}" 
+                        x:Name="encoded"/>
+                <Label Text="Decoded:" Grid.Column="0" Grid.Row="1"/>
+                <Editor MinimumHeightRequest="150" MinimumWidthRequest="200" Grid.Column="1" Grid.Row="1"
+                        Text="{Binding Source={x:Reference encoded}, Path=Text, Converter={StaticResource decoder}}" 
+                        x:Name="decoded"/>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>
+

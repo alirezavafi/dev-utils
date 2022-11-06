@@ -1,0 +1,30 @@
+﻿@inherits LayoutComponentBase
+
+<div class="page">
+    <main>
+        <SignatureCanvas class="my-special-styling-class"
+                         @ref=signatureCanvas
+                         width="400" height="200" />
+    </main>
+</div>
+@code {
+
+    private SignatureCanvas signatureCanvas;
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+    }
+       
+
+    async Task HandleClear()
+        {
+        }
+
+    async Task HandleSave(int table)
+    {
+
+    }
+
+
+}
