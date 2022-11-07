@@ -14,7 +14,7 @@
   <Properties>
     <DisplayName>PointOfSale</DisplayName>
     <PublisherDisplayName>Microsoft</PublisherDisplayName>
-    <Logo>appiconStoreLogo.png</Logo>
+    <Logo></Logo>
   </Properties>
 
   <Dependencies>
@@ -33,20 +33,16 @@
       <uap:VisualElements
         DisplayName="PointOfSale"
         Description="PointOfSale"
-        BackgroundColor="transparent"
-        Square150x150Logo="appiconMediumTile.png"
-        Square44x44Logo="appiconLogo.png">
+        BackgroundColor="transparent">
         <uap:DefaultTile
           Wide310x150Logo="appiconWideTile.png"
           Square71x71Logo="appiconSmallTile.png"
-          Square310x310Logo="appiconLargeTile.png"
-          ShortName="Food">
+          ShortName="DevUtils">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo"/>
             <uap:ShowOn Tile="wide310x150Logo"/>
           </uap:ShowNameOnTiles>
         </uap:DefaultTile >
-        <uap:SplashScreen Image="food_01SplashScreen.png" />
       </uap:VisualElements>
     </Application>
   </Applications>

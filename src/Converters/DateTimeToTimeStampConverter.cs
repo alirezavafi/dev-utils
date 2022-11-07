@@ -1,16 +1,18 @@
-﻿using System.Globalization;
+﻿using Persian.Plus.DateTime;
+using System.Globalization;
 
 namespace DevUtils.Converters;
 
 public class DateTimeToTimeStampConverter : IValueConverter
 {
     public bool Negate { get; set; }
+
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
         if (value == null)
             return null;
 
-        return Negate ? ConvertFrom(value.ToString()).ToString()
+        return Negate ? ConvertFrom(value.ToString()).ToString("yyyy/MM/dd HH:mm:ss")
                       : ConvertTo(value.ToString()).ToString();
     }
 
@@ -26,10 +28,10 @@ public class DateTimeToTimeStampConverter : IValueConverter
         var raw = long.Parse(value);
         if (value.Length > 10)
         {
-            var t1 = DateTimeOffset.FromUnixTimeMilliseconds(raw).DateTime;
+            var t1 = DateTimeOffset.FromUnixTimeMilliseconds(raw).LocalDateTime;
             return t1;
         }
-        var t2 = DateTimeOffset.FromUnixTimeSeconds(raw).DateTime;
+        var t2 = DateTimeOffset.FromUnixTimeSeconds(raw).LocalDateTime;
         return t2;
     }
 
@@ -39,6 +41,6 @@ public class DateTimeToTimeStampConverter : IValueConverter
             return null;
 
         return Negate ? ConvertTo(value.ToString()).ToString()
-                      : ConvertFrom(value.ToString()).ToString();
+                      : ConvertFrom(value.ToString()).ToString("yyyy/MM/dd HH:mm:ss");
     }
 }

@@ -68,6 +68,7 @@
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 	  <PackageReference Include="IdentityModel" Version="6.0.0" />
 	  <PackageReference Include="Microcharts" Version="0.9.5.9" />
+	  <PackageReference Include="Persian.Plus" Version="1.6.1" />
 	  <PackageReference Include="Redth.ZXing.Net.Maui" Version="0.1.0-preview.4" />
 	  <PackageReference Include="SkiaSharp.Extended.UI.Maui" Version="2.0.0-preview.59" />
 	  <PackageReference Include="Ril.BlazorSignatureCanvas" Version="0.1.0-alpha" />
