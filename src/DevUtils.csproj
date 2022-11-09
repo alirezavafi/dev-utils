@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
-
 	<PropertyGroup>
 		<TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) and '$(MSBuildRuntimeType)' == 'Full'">$(TargetFrameworks);net6.0-windows10.0.19041</TargetFrameworks>
@@ -9,6 +8,7 @@
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<EnablePreviewMsixTooling>true</EnablePreviewMsixTooling>
+		<WindowsPackageType>None</WindowsPackageType>
 
 		<!-- Display name -->
 		<ApplicationTitle>Food</ApplicationTitle>
@@ -68,15 +68,20 @@
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 	  <PackageReference Include="IdentityModel" Version="6.0.0" />
 	  <PackageReference Include="Microcharts" Version="0.9.5.9" />
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 	  <PackageReference Include="Persian.Plus" Version="1.6.1" />
 	  <PackageReference Include="Redth.ZXing.Net.Maui" Version="0.1.0-preview.4" />
 	  <PackageReference Include="SkiaSharp.Extended.UI.Maui" Version="2.0.0-preview.59" />
 	  <PackageReference Include="Ril.BlazorSignatureCanvas" Version="0.1.0-alpha" />
+	  <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.25.0" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Compile Update="Pages\DateTimeUtilsPage.xaml.cs">
 	    <DependentUpon>DateTimeUtilsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\JwtUtilsPage.xaml.cs">
+	    <DependentUpon>JwtUtilsPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Pages\PasswordUtilsPage.xaml.cs">
 	    <DependentUpon>PasswordUtilsPage.xaml</DependentUpon>
@@ -100,6 +105,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Pages\DateTimeUtilsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\JwtUtilsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\PasswordUtilsPage.xaml">

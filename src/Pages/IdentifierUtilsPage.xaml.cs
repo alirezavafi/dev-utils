@@ -11,8 +11,9 @@ public partial class IdentifierUtilsPage : ContentPage
 
 		guid.Text = Guid.NewGuid().ToString();
 		base32.Text = UniqueIdGenerator.GenerateBase32();
-		//base54.Text = UniqueIdGenerator.GenerateBase54();
-		random.Text = new RandomGenerator().Next(0, Int32.MaxValue).ToString();
+		base54.Text = UniqueIdGenerator.GenerateBase54();
+        base64.Text = UniqueIdGenerator.GenerateBase64();
+        random.Text = new RandomGenerator().Next(0, Int32.MaxValue).ToString();
 	}
 
     private void RegenerateGuid(object sender, EventArgs e)
@@ -27,10 +28,15 @@ public partial class IdentifierUtilsPage : ContentPage
 
     private void RegenerateBase54(object sender, EventArgs e)
 	{
+        base54.Text = UniqueIdGenerator.GenerateBase54();
+    }
+    
+    private void RegenerateBase64(object sender, EventArgs e)
+	{
+        base64.Text = UniqueIdGenerator.GenerateBase64();
+    }
 
-	}
-
-	private void RegenerateRandom(object sender, EventArgs e)
+    private void RegenerateRandom(object sender, EventArgs e)
 	{
         random.Text = new RandomGenerator().Next(0, Int32.MaxValue).ToString();
     }

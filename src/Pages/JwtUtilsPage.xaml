@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:a="clr-namespace:DevUtils"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui;assembly=CommunityToolkit.Maui" 
+             x:Class="DevUtils.Pages.JwtUtilsPage"
+             xmlns:vc="clr-namespace:DevUtils.Converters"
+             Title="JWT Utilities"
+             Shell.NavBarIsVisible="False">
+    <Grid RowDefinitions="100, *" RowSpacing="24"
+          ColumnDefinitions="*"
+          Margin="24,0,0,0">
+
+        <!-- left column -->
+        <VerticalStackLayout Margin="0,24,0,0">
+            <Label Text="JWT Encoder" Style="{StaticResource LargeTitle}"/>
+            <BoxView Style="{StaticResource HRule}" Margin="0,24,0,24"/>
+        </VerticalStackLayout>
+
+        <ScrollView Grid.Row="1" Margin="24">
+            <Grid RowDefinitions="auto,*" ColumnDefinitions="*,*" ColumnSpacing="10">
+                <Label Text="Encoded:" Grid.Column="0" Grid.Row="0"/>
+                <Editor AutoSize="TextChanges" Grid.Column="0" Grid.Row="1" 
+                        x:Name="input" TextChanged="input_changed" 
+                        VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                <Label Text="Decoded:" Grid.Column="1" Grid.Row="0"/>
+                <Editor 
+                        x:Name="decoded" IsReadOnly="True"
+                        VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                        AutoSize="TextChanges"  Grid.Column="1" Grid.Row="1"/>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>
+

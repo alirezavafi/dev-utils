@@ -24,14 +24,14 @@
 
         <ScrollView Grid.Row="1" Margin="24">
             <Grid RowDefinitions="*,*" ColumnDefinitions="auto,*" ColumnSpacing="10">
-                <Label Text="Encoded:" Grid.Column="0" Grid.Row="0"/>
-                <Editor MinimumHeightRequest="150" MinimumWidthRequest="200"  Grid.Column="1" Grid.Row="0"
-                        Text="{Binding Source={x:Reference decoded}, Path=Text, Converter={StaticResource encoder}}" 
-                        x:Name="encoded"/>
-                <Label Text="Decoded:" Grid.Column="0" Grid.Row="1"/>
-                <Editor MinimumHeightRequest="150" MinimumWidthRequest="200" Grid.Column="1" Grid.Row="1"
+                <Label Text="Decoded:" Grid.Column="0" Grid.Row="0"/>
+                <Editor MinimumHeightRequest="150" MinimumWidthRequest="200" Grid.Column="1" Grid.Row="0"
                         Text="{Binding Source={x:Reference encoded}, Path=Text, Converter={StaticResource decoder}}" 
                         x:Name="decoded"/>
+                <Label Text="Encoded:" Grid.Column="0" Grid.Row="1"/>
+                <Editor MinimumHeightRequest="150" MinimumWidthRequest="200"  Grid.Column="1" Grid.Row="1"
+                        Text="{Binding Source={x:Reference decoded}, Path=Text, Converter={StaticResource encoder}}" 
+                        x:Name="encoded"/>
             </Grid>
         </ScrollView>
     </Grid>

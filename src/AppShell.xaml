@@ -68,21 +68,20 @@
 
     <Shell.FlyoutContentTemplate>
         <DataTemplate>
-            <Grid Background="{StaticResource DarkBg2Brush}"
-                  RowDefinitions="auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto"
+            <VerticalStackLayout Background="{StaticResource DarkBg2Brush}"
                   RadioButtonGroup.GroupName="Menu"
                   RadioButtonGroup.SelectedValue="{Binding SelectedRoute}">
-                <Grid.Resources>
+                <VerticalStackLayout.Resources>
                     <Style TargetType="RadioButton">
                         <Setter Property="ControlTemplate" Value="{StaticResource MenuItemTemplate}"/>
                     </Style>
-                </Grid.Resources>
+                </VerticalStackLayout.Resources>
 
-                <Image Source="logo.png"
+                <!--<Image Source="logo.png"
                        Grid.Row="0"
-                       Margin="0,15,0,15"/>                    
+                       Margin="0,15,0,15"/>-->                    
 
-                <RadioButton Value="base64" Grid.Row="1"
+                <RadioButton Value="base64"
                                 CheckedChanged="OnMenuItemChanged">
                     <RadioButton.Content>
                         <Grid ColumnDefinitions="Auto,Auto" ColumnSpacing="8"
@@ -94,7 +93,7 @@
                         </Grid>
                     </RadioButton.Content>
                 </RadioButton>
-                <RadioButton Value="hash" Grid.Row="2"
+                <RadioButton Value="hash" 
                                 CheckedChanged="OnMenuItemChanged">
                     <RadioButton.Content>
                         <Grid ColumnDefinitions="Auto,Auto" ColumnSpacing="8"
@@ -106,7 +105,7 @@
                         </Grid>
                     </RadioButton.Content>
                 </RadioButton>
-                <RadioButton Value="id" Grid.Row="3"
+                <RadioButton Value="id" 
                                 CheckedChanged="OnMenuItemChanged">
                     <RadioButton.Content>
                         <Grid ColumnDefinitions="Auto,Auto" ColumnSpacing="8"
@@ -118,7 +117,7 @@
                         </Grid>
                     </RadioButton.Content>
                 </RadioButton>
-                <RadioButton Value="url" Grid.Row="5"
+                <RadioButton Value="url" 
                                 CheckedChanged="OnMenuItemChanged">
                     <RadioButton.Content>
                         <Grid ColumnDefinitions="Auto,Auto" ColumnSpacing="8"
@@ -130,7 +129,7 @@
                         </Grid>
                     </RadioButton.Content>
                 </RadioButton>
-                <RadioButton Value="password" Grid.Row="7"
+                <RadioButton Value="password" 
                                 CheckedChanged="OnMenuItemChanged">
                     <RadioButton.Content>
                         <Grid ColumnDefinitions="Auto,Auto" ColumnSpacing="8"
@@ -142,7 +141,7 @@
                         </Grid>
                     </RadioButton.Content>
                 </RadioButton>
-                <RadioButton Value="time" Grid.Row="8"
+                <RadioButton Value="time" 
                                 CheckedChanged="OnMenuItemChanged">
                     <RadioButton.Content>
                         <Grid ColumnDefinitions="Auto,Auto" ColumnSpacing="8"
@@ -154,7 +153,19 @@
                         </Grid>
                     </RadioButton.Content>
                 </RadioButton>
-            </Grid>
+                <RadioButton Value="jwt" 
+                                CheckedChanged="OnMenuItemChanged">
+                    <RadioButton.Content>
+                        <Grid ColumnDefinitions="Auto,Auto" ColumnSpacing="8"
+                          RowDefinitions="Auto, Auto" RowSpacing="4"
+                          Padding="10"
+                          >
+                            <Image Source="setting.svg" />
+                            <Label Text="JWT" Grid.Column="1" Style="{StaticResource Headline}" />
+                        </Grid>
+                    </RadioButton.Content>
+                </RadioButton>
+            </VerticalStackLayout>
         </DataTemplate>
     </Shell.FlyoutContentTemplate>
 
@@ -176,7 +187,7 @@
     <FlyoutItem Title="Password" Route="password">
         <ShellContent ContentTemplate="{DataTemplate pages:PasswordUtilsPage}"/>
     </FlyoutItem>
-    <FlyoutItem Title="Messages" Route="message">
-        <ShellContent ContentTemplate="{DataTemplate pages:EmptyPage}"/>
+    <FlyoutItem Title="JWT" Route="jwt">
+        <ShellContent ContentTemplate="{DataTemplate pages:JwtUtilsPage}"/>
     </FlyoutItem>
 </Shell>

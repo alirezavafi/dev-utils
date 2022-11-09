@@ -24,29 +24,41 @@
                        HorizontalOptions="Start" VerticalOptions="Center"/>
                 <Entry x:Name="guid" WidthRequest="400" IsReadOnly="True"
                        Grid.Column="1" Grid.Row="0"
-                       HorizontalOptions="Start" VerticalOptions="Center"/>
+                       HorizontalOptions="Start" VerticalOptions="Center"
+                       FontFamily="Courier New"/>
                 <Button Text="Regenerate" Grid.Column="2" Grid.Row="0"
                         Clicked="RegenerateGuid"/>
                 <Label Text="Base32:" Grid.Column="0" Grid.Row="1"
                        HorizontalOptions="Start" VerticalOptions="Center"/>
                 <Entry x:Name="base32" WidthRequest="400" IsReadOnly="True"
                        Grid.Column="1" Grid.Row="1"
-                       HorizontalOptions="Start" VerticalOptions="Center"/>
+                       HorizontalOptions="Start" VerticalOptions="Center"
+                       FontFamily="Courier New"/>
                 <Button Text="Regenerate" Grid.Column="2" Grid.Row="1"
                         Clicked="RegenerateBase32"/>
                 <Label Text="Base54:" Grid.Column="0" Grid.Row="2"
                        HorizontalOptions="Start" VerticalOptions="Center"/>
                 <Entry x:Name="base54" WidthRequest="400" IsReadOnly="True"
                        Grid.Column="1" Grid.Row="2"
-                       HorizontalOptions="Start" VerticalOptions="Center"/>
+                       HorizontalOptions="Start" VerticalOptions="Center"
+                       FontFamily="Courier New"/>
                 <Button Text="Regenerate" Grid.Column="2" Grid.Row="2"
                         Clicked="RegenerateBase54"/>
-                <Label Text="Random:" Grid.Column="0" Grid.Row="3"
+                <Label Text="Base64:" Grid.Column="0" Grid.Row="3"
+                       HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Entry x:Name="base64" WidthRequest="400" IsReadOnly="True"
+                       Grid.Column="1" Grid.Row="3"
+                       HorizontalOptions="Start" VerticalOptions="Center"
+                       FontFamily="Courier New"/>
+                <Button Text="Regenerate" Grid.Column="2" Grid.Row="3"
+                        Clicked="RegenerateBase64"/>
+                <Label Text="Random:" Grid.Column="0" Grid.Row="4"
                        HorizontalOptions="Start" VerticalOptions="Center"/>
                 <Entry x:Name="random" WidthRequest="400" IsReadOnly="True"
-                       Grid.Column="1" Grid.Row="3"
-                       HorizontalOptions="Start" VerticalOptions="Center"/>
-                <Button Text="Regenerate" Grid.Column="2" Grid.Row="3"
+                       Grid.Column="1" Grid.Row="4"
+                       HorizontalOptions="Start" VerticalOptions="Center"
+                       FontFamily="Courier New"/>
+                <Button Text="Regenerate" Grid.Column="2" Grid.Row="4"
                         Clicked="RegenerateRandom"/>
             </Grid>
         </ScrollView>

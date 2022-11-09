@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System;
 
 namespace DevUtils.Helpers
@@ -21,8 +22,8 @@ namespace DevUtils.Helpers
         {
             var guid = Guid.NewGuid().ToByteArray();
 
-            var hs = BitConverter.ToInt64(guid, 0);
-            var ls = BitConverter.ToInt64(guid, 8);
+            var hs = BitConverter.ToUInt64(guid, 0);
+            var ls = BitConverter.ToUInt64(guid, 8);
 
             var hsStr = LongToString(hs, encodeChars);
             var lsStr = LongToString(ls, encodeChars);
@@ -35,7 +36,7 @@ namespace DevUtils.Helpers
             return GenerateInBase(_encode54Chars.ToCharArray());
         }
 
-        private static string LongToString(long value, char[] baseChars)
+        private static string LongToString(ulong value, char[] baseChars)
         {
             var i = 64;
             var buffer = new char[i];
@@ -43,8 +44,8 @@ namespace DevUtils.Helpers
 
             do
             {
-                buffer[--i] = baseChars[value % targetBase];
-                value /= targetBase;
+                buffer[--i] = baseChars[value % (ulong)targetBase];
+                value /= (ulong)targetBase;
             }
             while (value > 0);
             var result = new char[64 - i];
@@ -85,6 +86,12 @@ namespace DevUtils.Helpers
             charBuffer[25] = _encode32Chars[(int)ls & 31];
 
             return new string(charBuffer);
+        }
+
+        public static string GenerateBase64()
+        {
+            var guid = Guid.NewGuid().ToByteArray();
+            return Convert.ToBase64String(guid);
         }
     }
 }

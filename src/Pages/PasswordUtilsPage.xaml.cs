@@ -31,4 +31,9 @@ public partial class PasswordUtilsPage : ContentPage
 	{
         CalculatePassword();
     }
+
+	private void Regenerate(object sender, EventArgs e)
+	{
+        CalculatePassword();
+    }
 }
