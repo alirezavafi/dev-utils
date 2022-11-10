@@ -61,6 +61,7 @@
 	  <Content Remove="Resources\Raw\payment1.json" />
 	  <Content Remove="Resources\Raw\payment2.json" />
 	  <Content Remove="Resources\Raw\payment3.json" />
+	  <Content Remove="global.json" />
 	</ItemGroup>
 
 	<ItemGroup>
