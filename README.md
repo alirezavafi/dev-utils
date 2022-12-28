@@ -1,3 +1,5 @@
+NOTE: I have found better tool that I not seen before. This tool is DevToys (https://github.com/veler/DevToys). So I decided to not re-invent the wheel.
+
 # Simple Dev Utitilies for Every Day Use
 
   - Base 64 Decode/Encode
